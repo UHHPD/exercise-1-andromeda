@@ -16,7 +16,7 @@ int main() {
     }
 
     double mean = static_cast<double>(sum)/count;
-    std::cout<< "The mean is = "<< mean << std::endl;
+    std::cout<< mean << std::endl;
 
     inputFile.close();
 }
