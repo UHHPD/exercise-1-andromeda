@@ -15,8 +15,25 @@ int main() {
         count++;
     }
 
-    double mean = static_cast<double>(sum)/count;
-    std::cout<< mean << std::endl;
+    double mean = double(sum)/count;
+    std::cout<< "The mean is = "<< mean << std::endl;
+
+    inputFile.close();
+
+    inputFile.open("datensumme.txt");
+
+    double square=0;
+
+    while (inputFile >> number){
+        double diff = double(number) - mean;
+        square += diff*diff;
+    }
+
+    double variance = (square)/count;
+    std::cout<< "The variance is = " << variance << std::endl;
+
+    double standard_deviation = sqrt(variance);
+    std::cout << "The standard deviation is = "<< standard_deviation << std::endl;
 
     inputFile.close();
 }
