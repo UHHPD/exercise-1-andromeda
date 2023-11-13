@@ -13,31 +13,26 @@ int main() {
 
     int sum = 0;
     int count = 0;
-    double square = 0;
+    int sumofsquare = 0;
     int num;
     
 
     while (inputFile >> num) {
         sum += num;
+        sumofsquare += num * num;
         ++count;
 
         if (count == 9) {
             double mean = double(sum) / 9.0;
-            
+            double variance = double(sumofsquare) / 9.0 - mean * mean;
 
-            double diff = double(num) - mean;
-            square += diff*diff;
-            double variance = (square)/9;
-            
             meanFile << mean << std::endl;
+
             varianceFile << variance << std::endl;
 
-            
-
             sum = 0;
+            sumofsquare = 0;
             count = 0;
-            square = 0;
-
         }
     }
 
