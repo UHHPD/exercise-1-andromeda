@@ -11,10 +11,10 @@ int main() {
 
     std::ofstream varianceFile("varianzen.txt");
 
-    int sum = 0;
-    int count = 0;
+    double sum = 0;
+    double count = 0;
     int sumofsquare = 0;
-    int num;
+    double num;
     
 
     while (inputFile >> num) {
@@ -39,6 +39,32 @@ int main() {
     
 
     inputFile.close();
+    meanFile.close();
+    varianceFile.close();
+
+    std::ifstream avgFile("mittelwerte.txt");
+    std::ifstream varFile("varianzen.txt");
+
+    while (avgFile >> num){
+        sum += num;
+        count++;
+    }
+    double average = double(sum) / count;
+    std::cout << "The mean of 26 means is = " << average << std::endl;
+
+    double sumv = 0;
+    double countv = 0;
+    double numv;
+
+    while (varFile >> numv){
+        sumv += numv;
+        countv++;
+    
+        
+    }
+    double average1 = double(sumv) / countv;
+    std::cout << "The mean of 26 variances is = " << average1 << std::endl;
+
     meanFile.close();
     varianceFile.close();
         
